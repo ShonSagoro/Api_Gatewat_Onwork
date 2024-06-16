@@ -9,6 +9,6 @@ COPY .env ./
 RUN npm install
 RUN npm install -g ts-node-dev
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD ["tsnd","--respawn" ,"src/app.ts"]
+CMD [ "npm", "run", "dev" ]

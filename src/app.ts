@@ -17,6 +17,7 @@ let server = null;
 app.use(morgan('dev'));
 
 const publicPaths = [
+  '/api/v1/users/sign_up',
   '/api/v1/users/sign_in',
   '/api/v1/users/health',
 ];
@@ -29,8 +30,7 @@ app.use((req, res, next) => {
     }
   });
 
-app.use('/api/v1/users',proxy('http://localhost:3001'));
-
+app.use('/api/v1/users', proxy('http://3.227.176.228:3001'));
 async function startServer() {
     await AuthTokenBanned();   
     server = app.listen(PORT, () => {
