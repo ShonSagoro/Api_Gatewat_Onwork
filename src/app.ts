@@ -13,7 +13,7 @@ const signale = new Signale();
 const PORT = process.env.PORT || 3000;
 const GATEWAY = process.env.SERVICE_NAME;
 let server = null;
-
+let user_url = process.env.USER_MICROSERVICES_URL || 'http://localhost:3001';
 app.use(morgan('dev'));
 
 const publicPaths = [
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
     }
   });
 
-app.use('/api/v1/users', proxy('http://localhost:3001'));
+app.use('/api/v1/users', proxy(user_url));
 
 async function startServer() {
     await AuthTokenBanned();   
