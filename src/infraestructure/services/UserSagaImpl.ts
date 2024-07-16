@@ -19,7 +19,9 @@ export class UserSagaImpl implements IUserSaga {
                     signale.info('Message received:', msg.content.toString());
                     const content:any = JSON.parse(msg.content.toString());
                     signale.info('Message received:', content);
+                    
                     JWTMiddleware.addToBlacklist(content.token);
+                    
                     signale.success('Token added to blacklist');                 
                     channel.ack(msg);
                 }
