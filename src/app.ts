@@ -19,6 +19,10 @@ const user_microservices_url = 'http://44.205.172.214:3001';
 const valoration_microservices_url = 'http://52.1.165.16:3002';
 const payment_microservices_url = 'http://44.215.98.61:3003';
 
+// const user_microservices_url = 'http://localhost:3001';
+// const valoration_microservices_url = 'http://localhost:3002';
+// const payment_microservices_url = 'http://localhost :3003';
+
 app.use(morgan('dev'));
 
 const publicPaths = [
