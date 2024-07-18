@@ -1,11 +1,13 @@
-version: '3'
+version: '3.8'
+
 services:
-  api-gateway:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+  gate:
+    build: .
+    container_name: gatea
+    image: gate
+    restart: always
     ports:
       - "3000:3000"
-    volumes:
-      - .:/usr/app
+    environment:
+      - NODE_ENV=development
     command: ["npm", "run", "dev"]

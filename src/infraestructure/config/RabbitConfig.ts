@@ -6,13 +6,13 @@ const hostname = process.env.RABBITMQ_HOST || 'localhost';
 const protocol = process.env.RABBITMQ_PROTOCOL;
 const user = process.env.RABBITMQ_USER;
 const password = process.env.RABBITMQ_PASS;
-const port = process.env.RABBITMQ_PORT;
+// const port = process.env.RABBITMQ_PORT;
 
 
 const rabbitSettings: any = {
     protocol: protocol,
     hostname: hostname,
-    port: port,
+    // port: port,
     username: user,
     password: password
 }
