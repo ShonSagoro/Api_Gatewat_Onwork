@@ -34,6 +34,8 @@ const publicPaths = [
   '/api/v1/users/ubication/[^/]+', //todo: check this
   '/api/v1/gateway/health',
   '/api/v1/valorations/health',
+  '/api/v1/chats/health',
+  '/api/v1/messages/health',
   '/api/v1/comments/health',
   '/api/v1/publications/health',
   '/api/v1/services/health',
@@ -56,6 +58,14 @@ app.use('/api/v1/users', proxy(user_microservices_url, {
 
 app.use('/api/v1/tags', proxy(user_microservices_url, {
   proxyReqPathResolver: (req) => `/tags${req.url}`
+}));
+
+app.use('/api/v1/messages', proxy(user_microservices_url, {
+  proxyReqPathResolver: (req) => `/messages${req.url}`
+}));
+
+app.use('/api/v1/chats', proxy(user_microservices_url, {
+  proxyReqPathResolver: (req) => `/chats${req.url}`
 }));
 
 app.use('/api/v1/user_tags', proxy(user_microservices_url, {
@@ -88,6 +98,7 @@ app.use('/api/v1/comments', proxy(valoration_microservices_url, {
   },
   }
 ));
+
 
 
 app.get('/api/v1/gateway/health', (req, res) => {
