@@ -15,15 +15,16 @@ const PORT = process.env.PORT || 3000;
 const GATEWAY = process.env.SERVICE_NAME;
 let server = null;
 
-// const user_microservices_url = 'http://44.205.172.214:3001';
-// const valoration_microservices_url = 'http://52.1.165.16:3002';
-// const payment_microservices_url = 'http://44.215.98.61:3003';
+const user_microservices_url = 'https://onwork-user.integrador.xyz';
+const valoration_microservices_url = 'https://onwork-publication.integrador.xyz';
+const payment_microservices_url = 'https://onwork-payments.integrador.xyz';
 
-const user_microservices_url = 'http://localhost:3001';
-const valoration_microservices_url = 'http://localhost:3002';
-const payment_microservices_url = 'http://localhost :3003';
+// const user_microservices_url = 'http://localhost:3001';
+// const valoration_microservices_url = 'http://localhost:3002';
+// const payment_microservices_url = 'http://localhost:3003';
 
 app.use(morgan('dev'));
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
 
 const publicPaths = [
   '/api/v1/users/sign_up',
