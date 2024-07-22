@@ -11,7 +11,7 @@ import cors from 'cors';
 
 dotenv.config();
 
-const app: Application = express();
+const app = express();
 app.use(cors({
   methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
 }));
