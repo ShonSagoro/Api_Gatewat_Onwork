@@ -7,14 +7,19 @@ import JWTMiddleware from "./middleware/JWTMiddleware";
 import { AuthTokenBanned } from "./infraestructure/Dependencies";
 import { rateLimiter } from "./middleware/RateLimiter";
 import bodyParser from "body-parser";
+import cors from 'cors';
 
 dotenv.config();
 
 const app: Application = express();
+app.use(cors({
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+}));
 const signale = new Signale();
 const PORT = process.env.PORT || 3000;
 const GATEWAY = process.env.SERVICE_NAME;
 let server = null;
+
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -34,6 +39,7 @@ const publicPaths = [
   '/api/v1/users/sign_up',
   '/api/v1/users/sign_in',
   '/api/v1/users/health',
+  '/api/v1/users/refresh/[^/]+',
   '/api/v1/users/activate/[^/]+',
   '/api/v1/users/ubication/[^/]+', //todo: check this
   '/api/v1/users/token/[^/]+', //todo: check this
